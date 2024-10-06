@@ -75,14 +75,14 @@ class StopChecker:
             return
 
         # Check if the sequence has reached max_model_len.
-        if seq.get_len() > self._get_max_model_len(lora_req):
-            seq.status = SequenceStatus.FINISHED_LENGTH_CAPPED
-            return
+        # if seq.get_len() > self._get_max_model_len(lora_req):
+        #     seq.status = SequenceStatus.FINISHED_LENGTH_CAPPED
+        #     return
 
-        # Check if the sequence has reached max_tokens.
-        if seq.get_output_len() == sampling_params.max_tokens:
-            seq.status = SequenceStatus.FINISHED_LENGTH_CAPPED
-            return
+        # # Check if the sequence has reached max_tokens.
+        # if seq.get_output_len() == sampling_params.max_tokens:
+        #     seq.status = SequenceStatus.FINISHED_LENGTH_CAPPED
+        #     return
 
     @staticmethod
     def _check_stop_strings(seq: Sequence, new_char_count: int,
